@@ -6,6 +6,8 @@ import pandas as pd
 from datetime import datetime
 import streamlit as st
 
+from fantasy_football_ui.team_name_utils import normalize_team_name
+
 def display_history_view():
     """Display league history view with season filter and game type selection"""
     st.header("📅 League History")
@@ -521,7 +523,6 @@ def display_history_view():
                     
                     # Display tournament bracket visualization (only shows winners advancing)
                     from fantasy_football_ui.bracket_visualizer import display_bracket
-                    from fantasy_football_ui.team_name_utils import normalize_team_name
                     display_bracket(rounds_dict, rosters, user_lookup, "Playoff")
                     
                     # Also show table view in expander
